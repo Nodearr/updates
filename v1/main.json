@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "branch": "main",
+  "version": "0.10.0",
+  "released": "2026-11-06T18:28:10Z",
+  "changelog": "https://nodearr.com/changelog/#0100-pre-release",
+  "summary": "Nodearr tells you when there's a new version, and installs it itself where it can. Versions before 0.10.0 never check, so update to this one by hand, as before: see [Updating](https://github.com/Nodearr/Nodearr/blob/v0.10.0/docs/user-guide/updating.md#update-by-hand). The first release a node hears of by itself is the one after 0.10.0. On Windows, installing 0.10.0 over an earlier version moves Nodearr out of Program Files (see Changed).",
+  "changes": [
+    {
+      "heading": "Added",
+      "items": [
+        "Nodearr checks `updates.nodearr.com` for a new version every 6 hours, as Sonarr and Radarr do, and shows it on the new System > Updates page with what changed. The answer is signed by the maintainer, and Nodearr ignores one that isn't, and warns on System > Status. It never takes a node back to an older version. The check sends no identifier, query string or cookie ([#134](https://github.com/Nodearr/Nodearr/issues/134), [Updating](https://github.com/Nodearr/Nodearr/blob/v0.10.0/docs/user-guide/updating.md), [ADR 0024](https://github.com/Nodearr/Nodearr/blob/v0.10.0/docs/adr/0024-update-checks-and-usage-reports-on-nodearr-com.md#2026-11-06-update-checks-and-automatic-updates-are-built-134)).",
+        "Installed with the Windows installer, or from a zip or archive it can change, Nodearr installs an update itself: Install Now on System > Updates, or by itself with Install Updates Automatically, on by default on Windows. It waits until nothing is being transferred, or 24 hours at most. If the new version doesn't answer within 3 minutes, the old one is put back with its database. A container never updates itself: the page shows the `docker pull` command instead ([#134](https://github.com/Nodearr/Nodearr/issues/134)).",
+        "Settings > General has an Updates section: Check for Updates, Install Updates Automatically, and Contact nodearr.com, which turns off everything Nodearr would contact on nodearr.com. Each can be set in the environment ([#134](https://github.com/Nodearr/Nodearr/issues/134), [Settings](https://github.com/Nodearr/Nodearr/blob/v0.10.0/docs/user-guide/settings.md#updates)).",
+        "System > Updates links to the updater's log files ([#134](https://github.com/Nodearr/Nodearr/issues/134))."
+      ]
+    },
+    {
+      "heading": "Changed",
+      "items": [
+        "The Windows installer puts Nodearr in `C:\\ProgramData\\Nodearr\\bin`, next to its data, as Sonarr and Radarr install theirs, and lets every account change that folder, so the service can update itself. Installing over an earlier version moves Nodearr out of Program Files and updates the firewall rule. The data stays where it was ([#134](https://github.com/Nodearr/Nodearr/issues/134)).",
+        "After an update, the Updated message links to the changelog on nodearr.com, opened in your browser ([#134](https://github.com/Nodearr/Nodearr/issues/134))."
+      ]
+    }
+  ],
+  "image": "ghcr.io/nodearr/nodearr:0.10.0",
+  "rollout": 100,
+  "packages": {
+    "linux-arm": {
+      "file": "Nodearr.0.10.0.linux-arm.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.linux-arm.tar.gz",
+      "size": 113944825,
+      "sha256": "d888584703074a8bb6834cee6bb90988cbf672c04b26644e34846229ca5acb3c"
+    },
+    "linux-arm64": {
+      "file": "Nodearr.0.10.0.linux-arm64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.linux-arm64.tar.gz",
+      "size": 116329707,
+      "sha256": "8b2058534dbb7758a120d56d39d581d60f4235e5c582a9c8c4f4a2cf194fd19c"
+    },
+    "linux-musl-arm64": {
+      "file": "Nodearr.0.10.0.linux-musl-arm64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.linux-musl-arm64.tar.gz",
+      "size": 116323570,
+      "sha256": "fd89ee8dfb4a13b00b66825d4e5a3c9b84249c513620bcf62758051dfbf1ac1b"
+    },
+    "linux-musl-x64": {
+      "file": "Nodearr.0.10.0.linux-musl-x64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.linux-musl-x64.tar.gz",
+      "size": 122545629,
+      "sha256": "f620b01c5c3b60164f2967982b8cb45315e0b3214d06f10970bfaef39911b6c9"
+    },
+    "linux-x64": {
+      "file": "Nodearr.0.10.0.linux-x64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.linux-x64.tar.gz",
+      "size": 122597239,
+      "sha256": "950b53c36c32b56fd99901d48b6afbddbb86f3e8b3e0c8cdbc72a049a359b70c"
+    },
+    "osx-arm64": {
+      "file": "Nodearr.0.10.0.osx-arm64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.osx-arm64.tar.gz",
+      "size": 113711958,
+      "sha256": "01c1a936a5023b84f8b388e098bb74c533d218656498d54efeacc39b702a93ba"
+    },
+    "osx-x64": {
+      "file": "Nodearr.0.10.0.osx-x64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.osx-x64.tar.gz",
+      "size": 119497000,
+      "sha256": "8848461a65019f2c030d0b4d138a6c1db26721a1c588dc4e1db032391b4d683a"
+    },
+    "win-x64": {
+      "file": "Nodearr.0.10.0.win-x64.zip",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.win-x64.zip",
+      "size": 138414038,
+      "sha256": "afdc798d8efbbac852cdae68d5aaf6ad7af1465eed02a278eac90c24a2f83f6e"
+    },
+    "win-x86": {
+      "file": "Nodearr.0.10.0.win-x86.zip",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.10.0/Nodearr.0.10.0.win-x86.zip",
+      "size": 129492017,
+      "sha256": "0673ca5e0d092bee0e340bc2db474ef21c6dcb934ad3648aff04f01bd8a1bcc4"
+    }
+  }
+}
