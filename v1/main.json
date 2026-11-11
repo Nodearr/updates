@@ -1,82 +1,80 @@
 {
   "format": 1,
   "branch": "main",
-  "version": "0.11.0",
-  "released": "2026-11-10T23:08:40Z",
-  "changelog": "https://nodearr.com/changelog/#0110-pre-release",
-  "summary": "Nodearr sends an anonymous usage report, on by default and easy to turn off, and the totals are public at nodearr.com/stats. A node on 0.10.0 hears of this release by itself and, where it can, installs it: the first release to arrive that way. It sends its first report 6 hours after updating. Until then, Show Report on Settings > General shows exactly what it would send, and Send Anonymous Usage Data beside it turns the report off.",
+  "version": "0.11.1",
+  "released": "2026-11-11T19:27:35Z",
+  "changelog": "https://nodearr.com/changelog/#0111-pre-release",
+  "summary": "Nodearr's copyright notice credits Sonarr, Prowlarr and Nodearr's contributors each for their own years, and `usage.nodearr.com` can't be flooded from one machine. Nodes on 0.10.0 and later hear of this release by themselves and, where they can, install it.",
   "changes": [
     {
-      "heading": "Added",
+      "heading": "Changed",
       "items": [
-        "Nodearr sends an anonymous usage report to `usage.nodearr.com` every 6 hours, as Sonarr and Radarr send theirs: the version and platform, how it was installed, the kinds and versions of the Arr apps connected, and how transfers went over the past week. Every count is a range, the report's ID changes every day at midnight UTC, and nothing in it names your node, your friends, your titles or your addresses. The totals are public at nodearr.com/stats ([#133](https://github.com/Nodearr/Nodearr/issues/133), [Privacy and security](https://github.com/Nodearr/Nodearr/blob/v0.11.0/docs/user-guide/privacy-and-security.md#anonymous-usage-report), [ADR 0024](https://github.com/Nodearr/Nodearr/blob/v0.11.0/docs/adr/0024-update-checks-and-usage-reports-on-nodearr-com.md#2026-11-06-usage-reports-are-built-133)).",
-        "Settings > General has a Usage Data section: Send Anonymous Usage Data, on by default and also set by `Nodearr__Usage__Send`, and Show Report, which shows the exact report the next run would send. Contact nodearr.com off stops the report too ([#133](https://github.com/Nodearr/Nodearr/issues/133), [Settings](https://github.com/Nodearr/Nodearr/blob/v0.11.0/docs/user-guide/settings.md#usage-data)).",
-        "The code of `usage.nodearr.com`, which takes in the reports, keeps no addresses and publishes daily totals, is in `usage/`, with the report's schema ([#133](https://github.com/Nodearr/Nodearr/issues/133))."
+        "`usage.nodearr.com` turns away a third report sent within 10 seconds from the same address, so one machine can't flood it. Cloudflare does the counting before the service runs, so the service still never reads addresses. A node sends one report every 6 hours and never meets the limit ([Privacy and security](https://github.com/Nodearr/Nodearr/blob/v0.11.1/docs/user-guide/privacy-and-security.md#anonymous-usage-report), [ADR 0024](https://github.com/Nodearr/Nodearr/blob/v0.11.1/docs/adr/0024-update-checks-and-usage-reports-on-nodearr-com.md#2026-11-10-a-rate-limit-for-usage-reports))."
       ]
     },
     {
-      "heading": "Removed",
+      "heading": "Fixed",
       "items": [
-        "The AnalyticsEnabled setting inherited from Sonarr, and its environment key `Nodearr__Log__AnalyticsEnabled`. It did nothing in Nodearr; Send Anonymous Usage Data is the one setting for usage data now ([#133](https://github.com/Nodearr/Nodearr/issues/133))."
+        "The copyright notice in Nodearr's program files gives Sonarr, Prowlarr and Nodearr's contributors each their own years, and names Prowlarr, whose code Nodearr also contains: `Copyright 2014-2026 sonarr.tv; Copyright 2014-2026 prowlarr.com; Copyright 2026 Nodearr's contributors`. It had given Sonarr and Nodearr's contributors one range ending in the year of the build, and left Prowlarr out. `NOTICE.md` now records Prowlarr's notice beside Sonarr's ([NOTICE.md](https://github.com/Nodearr/Nodearr/blob/v0.11.1/NOTICE.md#assembly-copyright))."
       ]
     }
   ],
-  "image": "ghcr.io/nodearr/nodearr:0.11.0",
+  "image": "ghcr.io/nodearr/nodearr:0.11.1",
   "rollout": 100,
   "packages": {
     "linux-arm": {
-      "file": "Nodearr.0.11.0.linux-arm.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.linux-arm.tar.gz",
-      "size": 113963111,
-      "sha256": "181d39f178126a1d82875c465926373f48cfb1546d7bd5a0530f8ca689f30caf"
+      "file": "Nodearr.0.11.1.linux-arm.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.linux-arm.tar.gz",
+      "size": 113961666,
+      "sha256": "c0593f1d5dcb6104a1888c82e815da0206dd942658da912cb36e420409e4c3b5"
     },
     "linux-arm64": {
-      "file": "Nodearr.0.11.0.linux-arm64.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.linux-arm64.tar.gz",
-      "size": 116346703,
-      "sha256": "97dabaec773d43eb7172bac67760dcb749fd1f1ae9dc367c5b336389c1001432"
+      "file": "Nodearr.0.11.1.linux-arm64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.linux-arm64.tar.gz",
+      "size": 116350323,
+      "sha256": "8f0fea0897b1ea1a41f2746f88d737b917a6804e31a2674974f038659dba9faa"
     },
     "linux-musl-arm64": {
-      "file": "Nodearr.0.11.0.linux-musl-arm64.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.linux-musl-arm64.tar.gz",
-      "size": 116343925,
-      "sha256": "88a4136fe49b0730363f683d8ce3187f789ef5f28876b799bc9fa2028b0f620c"
+      "file": "Nodearr.0.11.1.linux-musl-arm64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.linux-musl-arm64.tar.gz",
+      "size": 116345906,
+      "sha256": "d5d613939279d416d3a0a940591df1e49398b17e7cf4f65d492704b0b996a0c6"
     },
     "linux-musl-x64": {
-      "file": "Nodearr.0.11.0.linux-musl-x64.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.linux-musl-x64.tar.gz",
-      "size": 122564316,
-      "sha256": "fa449e2c7d93e026f9b9c609938487a5cb1b308a9d84a2aa72ce780d896f6057"
+      "file": "Nodearr.0.11.1.linux-musl-x64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.linux-musl-x64.tar.gz",
+      "size": 122560966,
+      "sha256": "85a0746e15f34acd5ec5abae7689c00de39165f8c0de7df3fedbd30b416a344d"
     },
     "linux-x64": {
-      "file": "Nodearr.0.11.0.linux-x64.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.linux-x64.tar.gz",
-      "size": 122613455,
-      "sha256": "d451c720ee51aadaa5e884526cb6d79c0e4b0bdd778f25b763c56571e879a6de"
+      "file": "Nodearr.0.11.1.linux-x64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.linux-x64.tar.gz",
+      "size": 122623950,
+      "sha256": "1838723960783a692911dec6a2b3b6d6aded832fb38e1116906aeb9e168e9744"
     },
     "osx-arm64": {
-      "file": "Nodearr.0.11.0.osx-arm64.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.osx-arm64.tar.gz",
-      "size": 113736823,
-      "sha256": "c12c8ba19ec739f8df4568dbd07d4f9e42d92be0f0f3f2a7a1c3c6ef7285609f"
+      "file": "Nodearr.0.11.1.osx-arm64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.osx-arm64.tar.gz",
+      "size": 113737344,
+      "sha256": "e6c45826412bdd74196f2213a528beb0c2e7b1e83c165732a71ef6dce47bd0ad"
     },
     "osx-x64": {
-      "file": "Nodearr.0.11.0.osx-x64.tar.gz",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.osx-x64.tar.gz",
-      "size": 119496918,
-      "sha256": "b0110bf288533c423c6cb5e02a167967c2f5cff68ad694aeaeda1ec53a9465b5"
+      "file": "Nodearr.0.11.1.osx-x64.tar.gz",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.osx-x64.tar.gz",
+      "size": 119500434,
+      "sha256": "4025753fa5caf98a30ce4e514956c4f2439b26e469d68438d6d97170888b77e1"
     },
     "win-x64": {
-      "file": "Nodearr.0.11.0.win-x64.zip",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.win-x64.zip",
-      "size": 138437413,
-      "sha256": "189e11d3a8362cfc27b737484a2327068506b4a8d5774fadc4300a001694487c"
+      "file": "Nodearr.0.11.1.win-x64.zip",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.win-x64.zip",
+      "size": 138438820,
+      "sha256": "1a8cedcf848cf82475ba16cd7b8f79e3be9307da083e798358497ffcf6f2e201"
     },
     "win-x86": {
-      "file": "Nodearr.0.11.0.win-x86.zip",
-      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.0/Nodearr.0.11.0.win-x86.zip",
-      "size": 129515408,
-      "sha256": "8e99ad0cfdc54d14d1439431074af885e220d6a74fc7dff34ae25282eb64b60e"
+      "file": "Nodearr.0.11.1.win-x86.zip",
+      "url": "https://github.com/Nodearr/Nodearr/releases/download/v0.11.1/Nodearr.0.11.1.win-x86.zip",
+      "size": 129516775,
+      "sha256": "3b1fb7095fa3b1923cebcf8ec2842855fc387f6e8ca3d07a7312fd0331ae796b"
     }
   }
 }
